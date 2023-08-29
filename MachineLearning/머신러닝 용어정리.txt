@@ -1,0 +1,71 @@
+!pip install mglearn
+import matplotlib.pyplot as plt
+import numpy as np
+import pandas as pd
+import mglearn
+
+numpy >> 다차원 배열을 위한 기능
+scipy >> 0을 많이 포함한 2차원 배열을 저장할때 사용
+matplotlib >> 고품질의 그래프 생성
+pandas >> DataFrame은 테이블 형태로 보여줌
+
+======================================
+
+키 안에 있는 값 접근
+iris_dataset["key_name"]
+
+======================================
+
+from sklearn.model_selection import train_test_split
+X_train,X_test, y_train, y_test= train_test_split(
+	속성,..., random_state = ??)
+>> 75%를 훈련세트, 25%를 테스트 세트로 섞어 줌
+
+훈련하기 >> fit(X_train, y_train)
+예측하기 >> knn.predict
+
+테스트셋 정확도 평가 >> knn.score(X_test, y_test) 
+
+======================================
+
+회귀: 예측하는 데이터가 숫자일 때 
+분류: 예측하는 데이터가 문자일 때
+
+======================================
+
+과대적합
+-너무 복잡해서 데이터 포인트에 민감해져 
+일반화를 시키지 못하는 것
+
+과소적합
+- 데이터의 양이 적어 정확도가 떨어짐
+
+======================================
+
+산점도 그리기
+mglearn.discrete_scatter(X[:,0],X[:,1],y)
+
+======================================
+
+knn
+from sklearn.neighbors import KNeighborsClassifier
+
+======================================
+
+L1 >> 중요한거 안쓰는 애들을 제외한다.
+        결과적으로 몇몇 중요한 가중치 들만 남게됨
+
+L2 >> 남아있는 애들 중에 정도를 조절
+
+복잡도 높으면 자유롭다. >> 과대적합 >> 규제(C)가 없다.
+======================================
+
+규제의 강도를 결정하는 매개변수 C
+C가 높아지면 >> 규제 완화 >> 과대 적합 발생!
+C가 낮아지면 >> 규제 강화 >> 과소 적합 발생!
+
+과대적합 감소하려면 >> C를 낮춘다.(규제 강화)
+과소적합에서 높이려면 >> C를 높인다.(규제 완화)
+
+
+
